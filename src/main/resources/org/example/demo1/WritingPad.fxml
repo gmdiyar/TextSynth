@@ -26,7 +26,7 @@
       <AnchorPane prefHeight="151.0" prefWidth="122.0" BorderPane.alignment="CENTER">
          <children>
             <Slider layoutX="6.0" layoutY="85.0" prefHeight="14.0" prefWidth="111.0" />
-            <Slider layoutX="6.0" layoutY="32.0" prefHeight="14.0" prefWidth="111.0" />
+            <Slider fx:id="multiplierSlider" layoutX="6.0" layoutY="32.0" onMouseDragged="#setMultiplier" prefHeight="14.0" prefWidth="111.0" />
             <Label layoutX="36.0" layoutY="14.0" text="Multiplier" />
             <Label layoutX="29.0" layoutY="68.0" text="Randomizer" />
             <Button layoutX="19.0" layoutY="136.0" mnemonicParsing="false" onAction="#checkMatrix" text="Check Matrix" />

@@ -4,8 +4,11 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.input.ScrollEvent;
 import org.example.demo1.Audio.Synth;
 
 import javax.sound.midi.InvalidMidiDataException;
@@ -14,9 +17,11 @@ import java.util.*;
 
 public class MainController {
 
+    public int multiplier = 1;
+    Synth synth = new Synth();
+
     @FXML
     public TextArea textArea;
-    Synth synth = new Synth();
     @FXML
     private Label welcomeText;
 
@@ -36,12 +41,18 @@ public class MainController {
             }soundMatrix.add(row);
         }
         System.out.println(soundMatrix);
-        synth.PlaySound(soundMatrix);
+        synth.PlaySound(soundMatrix, multiplier);
     }
 
 
     public void checkMatrix(ActionEvent actionEvent) {
         System.out.println("mtrx: " + soundMatrix);
+    }
+
+    public void setMultiplier(MouseEvent mouseEvent) {
+        Slider slider = (Slider) mouseEvent.getSource();
+        multiplier = (int) slider.getValue();
+        System.out.println(multiplier);
     }
 }
 
